@@ -1,6 +1,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Java IO Streams");
+        System.out.println("Library Management System");
     }
 }

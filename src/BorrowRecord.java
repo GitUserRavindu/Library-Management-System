@@ -1,36 +1,45 @@
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class BorrowRecord implements Serializable {
     // Serialization ID
     @Serial
     private static final long serialVersionUID = 3L;
 
+    private static int recordCount = 0;
+
     // Attributes
+    private int recordId;
     private Book book;
     private Member member;
-    private Date borrowDate;
-    private Date returnDate;
+    private LocalDate borrowDate;
+    private LocalDate returnDate;
 
     // Constructor
-    public BorrowRecord(Book book, Member member, Date borrowDate, Date returnDate) {
+    public BorrowRecord(Book book, Member member, LocalDate borrowDate) {
         this.book = book;
         this.member = member;
         this.borrowDate = borrowDate;
-        this.returnDate = returnDate;
+        this.returnDate = null;
+        this.recordId = recordCount;
+        recordCount++;
     }
 
     // Getters
     public Book getBook() {return this.book;}
     public Member getMember() {return this.member;}
-    public Date getBorrowDate() {return this.borrowDate;}
-    public Date getReturnDate() {return this.returnDate;}
+    public LocalDate getBorrowDate() {return this.borrowDate;}
+    public LocalDate getReturnDate() {return this.returnDate;}
+    public int getRecordId() {return this.recordId;}
+    public int getRecordCount() {return recordCount;}
 
     // Setters
     public void setBook(Book book) {this.book = book;}
     public void setMember(Member member) {this.member = member;}
-    public void setBorrowDate(Date borrowDate) {this.borrowDate = borrowDate;}
-    public void setReturnDate(Date returnDate) {this.returnDate = returnDate;}
+    public void setBorrowDate(LocalDate borrowDate) {this.borrowDate = borrowDate;}
+    public void setReturnDate(LocalDate returnDate) {this.returnDate = returnDate;}
+    public void setRecordId(int recordId) {this.recordId = recordId;}
+    public void setRecordCount(int recordCount) {BorrowRecord.recordCount = recordCount;}
 
 }

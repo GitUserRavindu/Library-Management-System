@@ -8,6 +8,8 @@ public class Member implements Serializable {
     @Serial
     private static final long serialVersionUID = 2L;
 
+    private static int memberCount = 0;
+
     // Attributes
     private String name;
     private int age;
@@ -15,11 +17,12 @@ public class Member implements Serializable {
     private List<Book> borrowedBooks = new ArrayList<>();
 
     // Constructor
-    public Member(String name, int age, int memberId) {
+    public Member(String name, int age) {
         this.name = name;
         this.age = age;
-        this.memberId = memberId;
         this.borrowedBooks = new ArrayList<>();
+        this.memberId = memberCount;
+        memberCount++;
     }
 
     // Getters
@@ -27,11 +30,13 @@ public class Member implements Serializable {
     public int getAge() {return this.age;}
     public int getMemberId() {return this.memberId;}
     public List<Book> getBorrowedBooks() {return this.borrowedBooks;}
+    public int getMemberCount() {return Member.memberCount;}
 
     // Setters
     public void setName(String name) {this.name = name;}
     public void setAge(int age) {this.age = age;}
     public void setMemberId(int memberId) {this.memberId = memberId;}
+    public void setMemberCount(int memberCount) {Member.memberCount = memberCount;}
 
     // Other Methods
     public void addBorrowedBook(Book book) {
@@ -46,4 +51,5 @@ public class Member implements Serializable {
         return this.borrowedBooks.size();
     }
 
+    // Maybe we can add borrow history.
 }
