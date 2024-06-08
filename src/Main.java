@@ -5,6 +5,8 @@ public class Main {
 
         LibraryManagementSystem lms = new LibraryManagementSystem();
 
+        Menu.MainMenu();
+
         lms.addNewBook("TestingTitle1", "TestingAuthor1", "ISBN01");
         lms.addNewBook("TestingTitle2", "TestingAuthor2", "ISBN02");
         lms.addNewBook("TestingTitle3", "TestingAuthor3", "ISBN03");

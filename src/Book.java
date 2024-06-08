@@ -41,4 +41,13 @@ public class Book implements Serializable {
     public void setBookId(int bookId) { this.bookId = bookId;}
     public void setBookCount(int bookCount) { Book.bookCount = bookCount;}
 
+    // Book Details display
+    public void bookDetails() {
+        System.out.println("Book ID: " + bookId);
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("ISBN: " + ISBN);
+        System.out.println("Available: " + available);
+    }
+
 }

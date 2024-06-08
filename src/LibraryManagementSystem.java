@@ -41,6 +41,7 @@ public class LibraryManagementSystem implements Serializable {
         for (Book book : this.bookList) {
             if (book.getISBN().equals(ISBN)) {
                 System.out.println("Book found");
+                book.bookDetails();
                 return true;
             }
         }
@@ -52,11 +53,11 @@ public class LibraryManagementSystem implements Serializable {
         for (Book book : this.bookList) {
             if (book.getISBN().equals(ISBN)) {
                 int idx = this.bookList.indexOf(book);
-                System.out.println("Book found. Index: " + idx);
+                // System.out.println("Book found. Index: " + idx);
                 return idx;
             }
         }
-        System.out.println("Book not found");
+        // System.out.println("Book not found");
         return -1; // Book not found
     }
 
@@ -64,6 +65,7 @@ public class LibraryManagementSystem implements Serializable {
         for (Book book : this.bookList) {
             if (book.getTitle().equals(title)) {
                 System.out.println("Book found");
+                book.bookDetails();
                 return true;
             }
         }
@@ -75,11 +77,11 @@ public class LibraryManagementSystem implements Serializable {
         for (Book book : this.bookList) {
             if (book.getTitle().equals(title)) {
                 int idx = this.bookList.indexOf(book);
-                System.out.println("Book found. Index: " + idx);
+                // System.out.println("Book found. Index: " + idx);
                 return idx;
             }
         }
-        System.out.println("Book not found");
+        // System.out.println("Book not found");
         return -1;
     }
 
@@ -101,6 +103,7 @@ public class LibraryManagementSystem implements Serializable {
         for (Member member : this.memberList) {
             if (member.getName().equals(name)) {
                 System.out.println("Member found");
+                member.memberDetails();
                 return true;
             }
         }
@@ -112,11 +115,11 @@ public class LibraryManagementSystem implements Serializable {
         for (Member member : this.memberList) {
             if (member.getName().equals(name)) {
                 int idx = this.memberList.indexOf(member);
-                System.out.println("Member found. Index: " + idx);
+                // System.out.println("Member found. Index: " + idx);
                 return idx;
             }
         }
-        System.out.println("Member not found");
+        // System.out.println("Member not found");
         return -1;
     }
 

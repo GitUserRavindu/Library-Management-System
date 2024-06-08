@@ -51,5 +51,12 @@ public class Member implements Serializable {
         return this.borrowedBooks.size();
     }
 
+    public void memberDetails() {
+        System.out.println("MemberId: " + this.memberId);
+        System.out.println("Member: " + this.name);
+        System.out.println("Age: " + this.age);
+        System.out.println("Borrowed Books: " + this.borrowedBooks);
+    }
+
     // Maybe we can add borrow history.
 }

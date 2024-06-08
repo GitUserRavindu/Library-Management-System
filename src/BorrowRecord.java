@@ -42,4 +42,12 @@ public class BorrowRecord implements Serializable {
     public void setRecordId(int recordId) {this.recordId = recordId;}
     public void setRecordCount(int recordCount) {BorrowRecord.recordCount = recordCount;}
 
+    public void borrowRecordDetails() {
+        System.out.println("Borrow record ID: " + this.recordId);
+        System.out.println("Borrowed Book: " + this.book);
+        System.out.println("Borrower: " + this.member);
+        System.out.println("Borrowed Date: " + this.borrowDate);
+        System.out.println("Returned Date: " + this.returnDate);
+    }
+
 }
