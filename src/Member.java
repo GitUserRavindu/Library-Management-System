@@ -14,7 +14,7 @@ public class Member implements Serializable {
     private String name;
     private int age;
     private int memberId;
-    private List<Book> borrowedBooks = new ArrayList<>();
+    private List<Book> borrowedBooks;
 
     // Constructor
     public Member(String name, int age) {
@@ -55,7 +55,13 @@ public class Member implements Serializable {
         System.out.println("MemberId: " + this.memberId);
         System.out.println("Member: " + this.name);
         System.out.println("Age: " + this.age);
-        System.out.println("Borrowed Books: " + this.borrowedBooks);
+
+        System.out.print("Borrowed Books: [");
+        for (Book book : this.borrowedBooks) {
+            System.out.print(book.getTitle() + ", ");
+        }
+        System.out.println("]");
+        System.out.println();
     }
 
     // Maybe we can add borrow history.
