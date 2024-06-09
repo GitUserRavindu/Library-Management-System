@@ -3,25 +3,26 @@ import java.util.Scanner;
 
 public class Menu {
     public static void MainMenu() {
+        System.out.println();
         System.out.println("------------------------------------");
         System.out.println("Welcome to Library Management System");
         System.out.println("------------------------------------");
         System.out.println("What do you want to do?");
         System.out.println();
-        System.out.println("1. Add a Book");
-        System.out.println("2. Update a Book Information");
-        System.out.println("3. Search for a Book by Title");
-        System.out.println("4. Search for a Book by ISBN");
-        System.out.println("5. Display Book List");
+        System.out.println("1. Add a new book");
+        System.out.println("2. Update an existing book information");
+        System.out.println("3. Search for a book by Title");
+        System.out.println("4. Search for a book by ISBN");
+        System.out.println("5. Display book database");
         System.out.println();
-        System.out.println("6. Register a Member");
-        System.out.println("7. Update a Member");
-        System.out.println("8. Search for a Member by name");
-        System.out.println("9. Display Member List");
+        System.out.println("6. Register a new member");
+        System.out.println("7. Update an existing member");
+        System.out.println("8. Search for a member by name");
+        System.out.println("9. Display Member Database");
         System.out.println();
-        System.out.println("10. Add New Borrowing Record");
-        System.out.println("11. Returning a Borrowed Book");
-        System.out.println("12. Display Borrowed Book list");
+        System.out.println("10. Add a new borrowing record");
+        System.out.println("11. Returning a borrowed book");
+        System.out.println("12. Display Borrowed Book Database");
         System.out.println();
         System.out.println("13. Exit");
         System.out.println("------------------------------------");
@@ -31,8 +32,8 @@ public class Menu {
         Scanner sc = ScannerUtil.scanner();
         int choice = sc.nextInt();
         sc.nextLine();
-
         System.out.println();
+
         switch (choice) {
             case 1: {
                 System.out.println("You have selected to Add a New Book");
@@ -47,19 +48,21 @@ public class Menu {
                 break;
             }
             case 2: {
-                System.out.println("You have selected to Update a Book Information");
-                System.out.println("How do you want find the book?");
+                System.out.println("You have selected to Update an Existing Book Information");
+                System.out.println("How do you want find the book in the database?");
                 System.out.println("1. I have the book ID");
-                System.out.println("2. I have the book title");
+                System.out.println("2. I have the book Title");
                 System.out.println("3. I have the book ISBN");
+
                 int subChoice = sc.nextInt();
                 sc.nextLine();
                 System.out.println();
-                int index = -1;
+                int index;
+
                 switch (subChoice) {
                     case 1: {
                         System.out.println("Enter the book ID: ");
-                        index = sc.nextInt();
+                        index = sc.nextInt(); // Need to handle wrong inputs
                         sc.nextLine();
                         System.out.println();
                         String[] updatedDetails = Menu.UpdatedBookInformation();
@@ -67,9 +70,13 @@ public class Menu {
                         break;
                     }
                     case 2: {
-                        System.out.println("Enter the book title: ");
+                        System.out.println("Enter the book Title: ");
                         String title = sc.nextLine();
-                        index = lms.getIndexOfBookByTitle(title);
+                        index = lms.searchBookByTitle(title);
+                        if (index == -1) {
+                            System.out.println("Please try again.");
+                            break;
+                        }
                         String[] updatedDetails = Menu.UpdatedBookInformation();
                         lms.updateBookInfo(index, updatedDetails[0], updatedDetails[1], updatedDetails[2]);
                         break;
@@ -77,13 +84,18 @@ public class Menu {
                     case 3: {
                         System.out.println("Enter the book ISBN: ");
                         String isbn = sc.nextLine();
-                        index = lms.getIndexOfBookByISBN(isbn);
-                        String[] updatedDetails = Menu.UpdatedBookInformation();
-                        lms.updateBookInfo(index, updatedDetails[0], updatedDetails[1], updatedDetails[2]);
+                        index = lms.searchBookByISBN(isbn);
+                        if (index == -1) {
+                            System.out.println("Please try again.");
+                        }
+                        else {
+                            String[] updatedDetails = Menu.UpdatedBookInformation();
+                            lms.updateBookInfo(index, updatedDetails[0], updatedDetails[1], updatedDetails[2]);
+                        }
                         break;
                     }
                     default: {
-                        System.out.println("Please enter a valid choice. ");
+                        System.out.println("Invalid choice. Please try again later.");
                         break;
                     }
                 }
@@ -104,13 +116,13 @@ public class Menu {
                 break;
             }
             case 5: {
-                System.out.println("You have selected to display the books list. Here it is : ");
+                System.out.println("You have selected to display the books database.");
                 lms.displayBooks();
                 break;
             }
             case 6: {
                 System.out.println("You have selected to register a new member");
-                System.out.println("Please enter the following details of the new mwmber");
+                System.out.println("Please enter the following details of the new member");
                 System.out.println("Member Name : ");
                 String name = sc.nextLine();
                 System.out.println("Member Age : ");
@@ -121,13 +133,15 @@ public class Menu {
             }
             case 7: {
                 System.out.println("You have selected to update a member information");
-                System.out.println("How do you want to find the member?");
-                System.out.println("1. By Member ID");
-                System.out.println("2. By Member Name");
+                System.out.println("How do you want to find the member in the database?");
+                System.out.println("1. I have the member ID");
+                System.out.println("2. I have the member Name");
+
                 int subChoice = sc.nextInt();
                 sc.nextLine();
                 System.out.println();
-                int index = -1;
+                int index;
+
                 switch (subChoice) {
                     case 1: {
                         System.out.println("Enter the member ID : ");
@@ -141,15 +155,21 @@ public class Menu {
                     case 2: {
                         System.out.println("Enter the Member Name: ");
                         String name = sc.nextLine();
-                        index = lms.getIndexOfMemberByName(name);
-                        String[] updatedDetails = Menu.UpdatedMemberInformation();
-                        lms.updateMemberInfo(index, updatedDetails[0], Integer.parseInt(updatedDetails[1]));
+                        index = lms.searchMemberByName(name);
+                        if (index == -1) {
+                            System.out.println("Please try again.");
+                        }
+                        else {
+                            String[] updatedDetails = Menu.UpdatedMemberInformation();
+                            lms.updateMemberInfo(index, updatedDetails[0], Integer.parseInt(updatedDetails[1]));
+                        }
                         break;
                     }
                     default: {
-                        System.out.println("Invalid choice. Try again");
+                        System.out.println("Invalid choice. Please try again later.");
                     }
                 }
+                break;
             }
             case 8: {
                 System.out.println("You have selected to search for a member by name");
@@ -159,31 +179,32 @@ public class Menu {
                 break;
             }
             case 9: {
-                System.out.println("You have selected to display the member list. Here it is : ");
+                System.out.println("You have selected to display the member database.");
                 lms.displayMembers();
                 break;
             }
             case 10: {
                 System.out.println("You have selected to enter a new borrowing record");
                 System.out.println("Please enter the following details");
-                System.out.println("Book Title : ");
-                String title = sc.nextLine();
-                System.out.println("Borrower ID : ");
-                int id = sc.nextInt();
+                System.out.println("Book ID : ");
+                int bookId = sc.nextInt();
                 sc.nextLine();
-                lms.addNewBorrowRecord(title, id);
+                System.out.println("Borrower ID : ");
+                int memberId = sc.nextInt();
+                sc.nextLine();
+                lms.addNewBorrowRecord(bookId, memberId);
                 break;
             }
             case 11: {
                 System.out.println("You have selected to return a borrowed book");
-                System.out.println("Enter the borrow ID : ");
+                System.out.println("Enter the borrow record ID : ");
                 int id = sc.nextInt();
                 sc.nextLine();
                 lms.returningBook(id);
                 break;
             }
             case 12: {
-                System.out.println("You have selected to display the borrowed book list. Here it is : ");
+                System.out.println("You have selected to display the borrowed book database.");
                 lms.displayBorrowedRecords();
                 break;
             }
@@ -192,7 +213,7 @@ public class Menu {
                 return -1;
             }
             default: {
-                System.out.println("Invalid choice. Try again.");
+                System.out.println("Invalid choice. Try again later.");
                 break;
             }
         }
