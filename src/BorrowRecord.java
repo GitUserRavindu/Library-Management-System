@@ -40,7 +40,7 @@ public class BorrowRecord implements Serializable {
     public void setBorrowDate(LocalDate borrowDate) {this.borrowDate = borrowDate;}
     public void setReturnDate(LocalDate returnDate) {this.returnDate = returnDate;}
     public void setRecordId(int recordId) {this.recordId = recordId;}
-    public void setRecordCount(int recordCount) {BorrowRecord.recordCount = recordCount;}
+    public static void setRecordCount(int recordCount) {BorrowRecord.recordCount = recordCount;}
 
     public void borrowRecordDetails() {
         System.out.println("Borrow record ID: " + this.recordId);

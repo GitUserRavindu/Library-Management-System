@@ -1,9 +1,19 @@
+import utilities.ScannerUtil;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Library Management System");
 
+        Scanner sc = ScannerUtil.scanner();
         LibraryManagementSystem lms = new LibraryManagementSystem();
+
+        System.out.println("Do you want to load lib data? (y/n)");
+        if (sc.nextLine().toLowerCase().equals("y")) {
+            System.out.println("Loading...");
+            lms.loadLibraryData();
+        }
 
         while (true) {
             Menu.MainMenu();
@@ -12,6 +22,14 @@ public class Main {
                 break;
             }
         }
+
+        System.out.println("Do you want to save library data? (y/n)");
+        if (sc.nextLine().toLowerCase().equals("y")) {
+            System.out.println("Saving...");
+            lms.saveLibraryData();
+        }
+
+        sc.close();
     }
 }
 

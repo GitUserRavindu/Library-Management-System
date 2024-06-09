@@ -36,7 +36,7 @@ public class Member implements Serializable {
     public void setName(String name) {this.name = name;}
     public void setAge(int age) {this.age = age;}
     public void setMemberId(int memberId) {this.memberId = memberId;}
-    public void setMemberCount(int memberCount) {Member.memberCount = memberCount;}
+    public static void setMemberCount(int memberCount) {Member.memberCount = memberCount;}
 
     // Other Methods
     public void addBorrowedBook(Book book) {

@@ -1,5 +1,4 @@
-import java.io.Serial;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -187,6 +186,70 @@ public class LibraryManagementSystem implements Serializable {
             System.out.println();
         }
         System.out.println();
+    }
+
+    // System Load Handle
+    public void loadLibraryData() {
+        try {
+            File file = new File("src/save_files/library_data.ser");
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            this.bookList = (ArrayList<Book>) ois.readObject();
+            this.memberList = (ArrayList<Member>) ois.readObject();
+            this.borrowRecordList = (ArrayList<BorrowRecord>) ois.readObject();
+
+            this.bookMap = (HashMap<Integer, Book>) ois.readObject();
+            this.memberMap = (HashMap<Integer, Member>) ois.readObject();
+            this.borrowRecordMap = (HashMap<Integer, BorrowRecord>) ois.readObject();
+
+            Book.setBookCount(this.bookList.size());
+            Member.setMemberCount(this.memberList.size());
+            BorrowRecord.setRecordCount(this.borrowRecordList.size());
+        }
+        catch (IOException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+            // e.printStackTrace();
+        }
+        catch (ClassCastException e) {
+            System.out.println("Class Cast Error " + e.getMessage());
+            // e.printStackTrace();
+        }
+        catch (Exception e) {
+            System.out.println("Global Exception " + e.getMessage());
+            // e.printStackTrace();
+        }
+    }
+
+    // System Save Handle
+    public void saveLibraryData() {
+        // Ensure the directory exists
+        File directory = new File("src/save_files");
+        if (!directory.exists()) {
+            Boolean created = directory.mkdirs();
+        }
+
+        try {
+            File file = new File(directory, "library_data.ser");
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(this.bookList);
+            oos.writeObject(this.memberList);
+            oos.writeObject(this.borrowRecordList);
+
+            oos.writeObject(this.bookMap);
+            oos.writeObject(this.memberMap);
+            oos.writeObject(this.borrowRecordMap);
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+            // e.printStackTrace();
+        }
+        catch (Exception e) {
+            System.out.println("Global Exception " + e.getMessage());
+            // e.printStackTrace();
+        }
     }
 
 }

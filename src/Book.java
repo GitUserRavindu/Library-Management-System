@@ -39,7 +39,7 @@ public class Book implements Serializable {
     public void setISBN(String ISBN) { this.ISBN = ISBN;}
     public void setAvailable(boolean available) { this.available = available;}
     public void setBookId(int bookId) { this.bookId = bookId;}
-    public void setBookCount(int bookCount) { Book.bookCount = bookCount;}
+    public static void setBookCount(int bookCount) { Book.bookCount = bookCount;}
 
     // Book Details display
     public void bookDetails() {
