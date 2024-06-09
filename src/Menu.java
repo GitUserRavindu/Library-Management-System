@@ -187,7 +187,7 @@ public class Menu {
                 System.out.println("You have selected to enter a new borrowing record");
                 System.out.println("Please enter the following details");
                 System.out.println("Book ID : ");
-                int bookId = sc.nextInt();
+                int bookId = sc.nextInt(); // Need to handle invalid inputs
                 sc.nextLine();
                 System.out.println("Borrower ID : ");
                 int memberId = sc.nextInt();
