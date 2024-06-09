@@ -191,7 +191,7 @@ public class LibraryManagementSystem implements Serializable {
     // System Load Handle
     public void loadLibraryData() {
         try {
-            File file = new File("src/save_files/library_data.ser");
+            File file = new File("save_files/library_data.ser");
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
@@ -224,7 +224,7 @@ public class LibraryManagementSystem implements Serializable {
     // System Save Handle
     public void saveLibraryData() {
         // Ensure the directory exists
-        File directory = new File("src/save_files");
+        File directory = new File("save_files");
         if (!directory.exists()) {
             Boolean created = directory.mkdirs();
         }
