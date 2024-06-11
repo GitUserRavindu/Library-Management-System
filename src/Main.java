@@ -10,7 +10,7 @@ public class Main {
         LibraryManagementSystem lms = new LibraryManagementSystem();
 
         System.out.println("Do you want to load lib data? (y/n)");
-        if (sc.nextLine().toLowerCase().equals("y")) {
+        if (sc.nextLine().equalsIgnoreCase("y")) {
             System.out.println("Loading...");
             lms.loadLibraryData();
             System.out.println("Library Data Loaded Successfully");
@@ -25,7 +25,7 @@ public class Main {
         }
 
         System.out.println("Do you want to save library data? (y/n)");
-        if (sc.nextLine().toLowerCase().equals("y")) {
+        if (sc.nextLine().equalsIgnoreCase("y")) {
             System.out.println("Saving...");
             lms.saveLibraryData();
         }

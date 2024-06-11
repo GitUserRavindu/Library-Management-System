@@ -1,10 +1,21 @@
 # Library Management System
-This is a simple, CLI based Library Management System implemented in Java, demonstrating the use of IO streams, serialization, exception handling and basic object-oriented principles. The system allows for managing books, members, and borrowing records in a Libarary Sytem.
+This is a simple, CLI based Library Management System
+implemented in Java, demonstrating the use of IO
+streams, serialization, exception handling and basic
+object-oriented principles. The system allows for
+managing books, members, and borrowing & returning
+records in a Library System.
 
 ## Table of Contents
+- [Motivation](#motivation)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+
+## Motivation
+This project is done to concrete the understanding of
+important Java concepts such as OOP, IO Streams, Exception
+handling, and Serialization.
 
 ## Features
 
