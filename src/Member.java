@@ -30,7 +30,7 @@ public class Member implements Serializable {
     public int getAge() {return this.age;}
     public int getMemberId() {return this.memberId;}
     public List<Book> getBorrowedBooks() {return this.borrowedBooks;}
-    public int getMemberCount() {return Member.memberCount;}
+    public static int getMemberCount() {return Member.memberCount;}
 
     // Setters
     public void setName(String name) {this.name = name;}
@@ -65,4 +65,5 @@ public class Member implements Serializable {
     }
 
     // Maybe we can add borrow history.
+    // Need to add search member by id. That will help the delete member method also.
 }

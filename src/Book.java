@@ -31,7 +31,7 @@ public class Book implements Serializable {
     public String getISBN() { return this.ISBN;}
     public boolean isAvailable() { return this.available;}
     public int getBookId() { return this.bookId;}
-    public int getBookCount() { return Book.bookCount;}
+    public static int getBookCount() { return Book.bookCount;}
 
     // Setters
     public void setTitle(String title) { this.title = title;}

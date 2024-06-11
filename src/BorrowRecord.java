@@ -32,7 +32,7 @@ public class BorrowRecord implements Serializable {
     public LocalDate getBorrowDate() {return this.borrowDate;}
     public LocalDate getReturnDate() {return this.returnDate;}
     public int getRecordId() {return this.recordId;}
-    public int getRecordCount() {return recordCount;}
+    public static int getRecordCount() {return recordCount;}
 
     // Setters
     public void setBook(Book book) {this.book = book;}

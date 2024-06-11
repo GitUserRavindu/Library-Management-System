@@ -13,6 +13,7 @@ public class Main {
         if (sc.nextLine().toLowerCase().equals("y")) {
             System.out.println("Loading...");
             lms.loadLibraryData();
+            System.out.println("Library Data Loaded Successfully");
         }
 
         while (true) {

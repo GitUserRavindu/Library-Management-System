@@ -25,7 +25,7 @@ This is a simple, CLI based Library Management System implemented in Java, demon
 2. **Open the terminal and navigate to the src directory. Then compile the code.**:
      ```
      javac LibraryManagementSystem.java
-4. **Run the application**:
+3. **Run the application**:
      ```
      java Main
 
