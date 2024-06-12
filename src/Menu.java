@@ -60,11 +60,15 @@ public class Menu {
                 switch (subChoice) {
                     case 1: {
                         System.out.println("Enter the book ID: ");
-                        // The next line need to change when adding delete book option. Range is not enough then.
-                        index = utilities.handleErrors.integerInputHandler(0, Book.getBookCount()-1);
-                        System.out.println();
-                        String[] updatedDetails = Menu.UpdatedBookInformation();
-                        lms.updateBookInfo(index, updatedDetails[0], updatedDetails[1], updatedDetails[2]);
+                        int id = utilities.handleErrors.integerInputHandler(0, Book.getBookCount()-1);
+                        index = lms.searchBookById(id);
+                        if (index == -1) {
+                            System.out.println("Please try again.");
+                        }
+                        else {
+                            String[] updatedDetails = Menu.UpdatedBookInformation();
+                            lms.updateBookInfo(index, updatedDetails[0], updatedDetails[1], updatedDetails[2]);
+                        }
                         break;
                     }
                     case 2: {
@@ -142,10 +146,15 @@ public class Menu {
                 switch (subChoice) {
                     case 1: {
                         System.out.println("Enter the member ID : ");
-                        index = utilities.handleErrors.integerInputHandler(0, Member.getMemberCount()-1);
-                        System.out.println();
-                        String[] updatedDetails = Menu.UpdatedMemberInformation();
-                        lms.updateMemberInfo(index, updatedDetails[0], Integer.parseInt(updatedDetails[1]));
+                        int id = utilities.handleErrors.integerInputHandler(0, Member.getMemberCount()-1);
+                        index = lms.searchMemberById(id);
+                        if (index == -1) {
+                            System.out.println("Please try again.");
+                        }
+                        else {
+                            String[] updatedDetails = Menu.UpdatedMemberInformation();
+                            lms.updateMemberInfo(index, updatedDetails[0], Integer.parseInt(updatedDetails[1]));
+                        }
                         break;
                     }
                     case 2: {
@@ -194,7 +203,14 @@ public class Menu {
                 System.out.println("You have selected to return a borrowed book");
                 System.out.println("Enter the borrow record ID : ");
                 int id = utilities.handleErrors.integerInputHandler(0, BorrowRecord.getRecordCount()-1);
-                lms.returningBook(id);
+                // Need to check if borrow record id exists with no returned
+                int index = lms.searchRecordById(id);
+                if (index == -1) {
+                    System.out.println("Please try again.");
+                }
+                else {
+                    lms.returningBook(index);
+                }
                 break;
             }
             case 12: {
