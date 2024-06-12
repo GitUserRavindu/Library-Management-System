@@ -34,10 +34,12 @@ handling, and Serialization.
 1. **Clone the repository**:
 
 2. **Open the terminal and navigate to the src directory. Then compile the code.**:
+     ```shell
+     javac Main.java
      ```
-     javac LibraryManagementSystem.java
 3. **Run the application**:
-     ```
+     ```shell
      java Main
+     ```
 
 ### Still Updating...

@@ -76,6 +76,18 @@ public class LibraryManagementSystem implements Serializable {
         return -1;
     }
 
+    // Search for a book by ID. Return the Book ID if found. Otherwise, return -1
+    public int searchBookById(int id) {
+        Book book = this.bookMap.get(id);
+        if (book != null) {
+            System.out.println("Book found");
+            book.bookDetails();
+            return book.getBookId();
+        }
+        System.out.println("Book not found");
+        return -1;
+    }
+
     //////// Member Management ////////
 
     // Add a new member to the database
@@ -102,6 +114,18 @@ public class LibraryManagementSystem implements Serializable {
                 member.memberDetails();
                 return member.getMemberId();
             }
+        }
+        System.out.println("Member not found");
+        return -1;
+    }
+
+    // Search for a member by ID. Return the Member ID if found. Otherwise, return -1
+    public int searchMemberById(int id) {
+        Member member = this.memberMap.get(id);
+        if (member != null) {
+            System.out.println("Member found");
+            member.memberDetails();
+            return member.getMemberId();
         }
         System.out.println("Member not found");
         return -1;
@@ -142,6 +166,18 @@ public class LibraryManagementSystem implements Serializable {
         borrowedBook.setAvailable(true);
         record.setReturnDate(LocalDate.now());
         System.out.println("Returning Book has been returned successfully.");
+    }
+
+    // Search for the existence of borrowRecordId
+    public int searchRecordById(int id) {
+        BorrowRecord record = this.borrowRecordMap.get(id);
+        if (record != null) {
+            System.out.println("Record found");
+            record.borrowRecordDetails();
+            return record.getRecordId();
+        }
+        System.out.println("Record not found");
+        return -1;
     }
 
     //////// Database Display Management ////////
