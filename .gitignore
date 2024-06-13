@@ -6,9 +6,6 @@ out/
 ### Save Files Folder
 save_files/
 
-### Jar File
-out/artifacts/
-
 ### Eclipse ###
 .apt_generated
 .classpath
