@@ -36,12 +36,15 @@ public class Menu {
 
                 System.out.println("Book Title : ");
                 String title = utilities.handleErrors.nonEmptyStringInputHandler();
+                System.out.println();
 
                 System.out.println("Book Author : ");
                 String author = utilities.handleErrors.nonEmptyStringInputHandler();
+                System.out.println();
 
                 System.out.println("Book ISBN : ");
                 String isbn = utilities.handleErrors.nonEmptyStringInputHandler();
+                System.out.println();
 
                 lms.addNewBook(title, author, isbn);
                 break;
@@ -128,8 +131,10 @@ public class Menu {
                 System.out.println("Please enter the following details of the new member");
                 System.out.println("Member Name : ");
                 String name = utilities.handleErrors.nonEmptyStringInputHandler();
+                System.out.println();
                 System.out.println("Member Age : ");
                 int age = utilities.handleErrors.integerInputHandler(1, 150);
+                System.out.println();
                 lms.addNewMember(name, age);
                 break;
             }
@@ -194,8 +199,10 @@ public class Menu {
                 // Need to handle if member or book not in the db. For now OK. But after implementing delete methods.
                 System.out.println("Book ID : ");
                 int bookId = utilities.handleErrors.integerInputHandler(0, BorrowRecord.getRecordCount()-1);
+                System.out.println();
                 System.out.println("Borrower ID : ");
                 int memberId = utilities.handleErrors.integerInputHandler(0, Member.getMemberCount()-1);
+                System.out.println();
                 lms.addNewBorrowRecord(bookId, memberId);
                 break;
             }
