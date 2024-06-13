@@ -77,7 +77,7 @@ We welcome contributions to improve this project! Please fork the repository and
 
 ## Prerequisites
 To contribute to this project, you need to have the following version or above installed:
-- JDK
+- JDK 17
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
