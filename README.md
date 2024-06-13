@@ -62,7 +62,11 @@ The primary motivation behind this project is to solidify the understanding of c
 - **Data Security**: Data is saved in `.ser` format without encryption. Avoid using sensitive information.
 
 ## Disclaimer
-This project is intended for educational purposes to reinforce Java programming concepts. It is not suitable for use as a real-world library management system. No responsibility is taken for any file or application crashes. Please do not include sensitive data in the system as it is not encrypted.
+This Java application is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
+This project is developed as a part of an educational exercise and is intended for demonstration and learning purposes only. It is not designed to be used in a production environment or with real-world data. The current version lacks features such as deletion support, a graphical user interface (GUI), and data encryption, which are critical for a fully functional library management system. Future updates may address these limitations, but there is no guarantee of such enhancements.
+
+Users are advised to exercise caution and not to rely on the software for any purpose that requires accurate and secure data handling. The developers assume no responsibility for any loss of data, system crashes, or any other damage that may occur from using the application. Contributions and feedback are welcome to help improve the project, but please be aware that this is a learning project and may not receive regular updates or support.
 
 ## Future Plans
 - Implementing delete functionality for books, members, and borrowing records.
