@@ -80,4 +80,4 @@ To contribute to this project, you need to have the following version or above i
 - JDK 17
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/GitUserRavindu/Library-Management-System?tab=MIT-1-ov-file) file for details.
