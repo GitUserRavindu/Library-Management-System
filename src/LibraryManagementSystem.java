@@ -38,6 +38,7 @@ public class LibraryManagementSystem implements Serializable {
         Book newBook = new Book(title, author, ISBN);
         this.bookList.add(newBook);
         this.bookMap.put(newBook.getBookId(), newBook);
+        System.out.println();
         System.out.println("New book added successfully.");
     }
 
@@ -47,6 +48,7 @@ public class LibraryManagementSystem implements Serializable {
         book.setTitle(title);
         book.setAuthor(author);
         book.setISBN(ISBN);
+        System.out.println();
         System.out.println("Book info updated successfully.");
     }
 
@@ -225,7 +227,7 @@ public class LibraryManagementSystem implements Serializable {
     }
 
     // System Load Handle
-    public void loadLibraryData() {
+    public int loadLibraryData() {
         try {
             File file = new File("save_files/library_data.ser");
             FileInputStream fis = new FileInputStream(file);
@@ -242,23 +244,23 @@ public class LibraryManagementSystem implements Serializable {
             Book.setBookCount(this.bookList.size());
             Member.setMemberCount(this.memberList.size());
             BorrowRecord.setRecordCount(this.borrowRecordList.size());
+
+            return 0;
         }
         catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
-            // e.printStackTrace();
         }
         catch (ClassCastException e) {
             System.out.println("Class Cast Error " + e.getMessage());
-            // e.printStackTrace();
         }
         catch (Exception e) {
             System.out.println("Global Exception " + e.getMessage());
-            // e.printStackTrace();
         }
+        return -1;
     }
 
     // System Save Handle
-    public void saveLibraryData() {
+    public int saveLibraryData() {
         // Ensure the directory exists
         File directory = new File("save_files");
         if (!directory.exists()) {
@@ -277,15 +279,16 @@ public class LibraryManagementSystem implements Serializable {
             oos.writeObject(this.bookMap);
             oos.writeObject(this.memberMap);
             oos.writeObject(this.borrowRecordMap);
+
+            return 0;
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
-            // e.printStackTrace();
         }
         catch (Exception e) {
             System.out.println("Global Exception " + e.getMessage());
-            // e.printStackTrace();
         }
+        return -1;
     }
 
 }

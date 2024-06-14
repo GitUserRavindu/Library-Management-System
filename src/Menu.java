@@ -22,6 +22,8 @@ public class Menu {
         System.out.println("12. Display Borrowed Book Database");
         System.out.println();
         System.out.println("13. Exit");
+        System.out.println();
+        System.out.println("Please enter your choice (1-13).");
         System.out.println("------------------------------------");
     }
 
@@ -33,18 +35,16 @@ public class Menu {
             case 1: {
                 System.out.println("You have selected to Add a New Book");
                 System.out.println("Please enter the following details of the new book");
+                System.out.println();
 
                 System.out.println("Book Title : ");
                 String title = utilities.handleErrors.nonEmptyStringInputHandler();
-                System.out.println();
 
                 System.out.println("Book Author : ");
                 String author = utilities.handleErrors.nonEmptyStringInputHandler();
-                System.out.println();
 
                 System.out.println("Book ISBN : ");
                 String isbn = utilities.handleErrors.nonEmptyStringInputHandler();
-                System.out.println();
 
                 lms.addNewBook(title, author, isbn);
                 break;
@@ -129,12 +129,15 @@ public class Menu {
             case 6: {
                 System.out.println("You have selected to register a new member");
                 System.out.println("Please enter the following details of the new member");
+                System.out.println();
+
                 System.out.println("Member Name : ");
                 String name = utilities.handleErrors.nonEmptyStringInputHandler();
                 System.out.println();
+
                 System.out.println("Member Age : ");
                 int age = utilities.handleErrors.integerInputHandler(1, 150);
-                System.out.println();
+
                 lms.addNewMember(name, age);
                 break;
             }
