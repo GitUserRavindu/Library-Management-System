@@ -43,7 +43,7 @@ The primary motivation behind this project is to solidify the understanding of c
 - **Display Borrow Records**: Display all existing borrow records.
 
 ## Installation
-1. Download the `Library_Management_System_v1.0.0.exe` file from the [Releases](https://github.com/yourusername/library-management-system/releases) page. (Will be released soon!)
+1. Download the `Library_Management_System_v0.1.0.exe` file from the [Releases](https://github.com/yourusername/library-management-system/releases) page.
 2. Save the `.exe` file in a separate folder to ensure proper organization of generated save files.
 3. Run the `.exe` file to start the application.
 
