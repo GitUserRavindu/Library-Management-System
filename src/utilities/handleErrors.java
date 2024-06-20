@@ -28,7 +28,7 @@ public class handleErrors {
                     throw new InputOutOfRangeException("Input out of range.");
                 }
             } catch (InputMismatchException | NumberFormatException e) {
-                System.out.println("Input should not be a negative integer. Try again.");
+                System.out.println("Input should not be a negative number or a word. Try again.");
             } catch (InputOutOfRangeException e) {
                 System.out.println(e.getMessage());
                 System.out.println("Please enter a number between " + rangeMin + " and " + rangeMax);
